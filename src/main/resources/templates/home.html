@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <ul>
+            <li><a th:href="@{/signout}">Sign Out</a></li>
+        </ul>
+        <h3>Your Wunderlist User</h3>
+        <ul>
+            <li>User: <span th:text="${user.name}">name</span></li>
+            <li>Email: <span th:text="${user.email}">email</span></li>
+        </ul>
+
+        <h3>Your Lists</h3>
+        <ul>
+            <li th:each="list : ${lists}">
+                <a th:href="@{/lists/{id}(id=${list.id})}">
+                    <span th:text="${list.title}">title</span>
+                </a>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>List Overview</title>
+    </head>
+    <body>
+        <ul>
+            <li><a th:href="@{/}">Back</a></li>
+        </ul>
+        <h3>List Details</h3>
+        <ul>
+            <li>Title: <span th:text="${list.title}">list</span></li>
+            <li>Completed: <span th:text="${count.completedCount}">completed</span></li>
+            <li>Uncompleted: <span th:text="${count.uncompletedCount}">uncompleted</span></li>
+        </ul>
+        <h3>Tasks</h3>
+        <ul>
+            <li th:each="task : ${tasks}">
+                <span th:text="${task.title}">task</span>
+            </li>
+        </ul>
+    </body>
+</html>
